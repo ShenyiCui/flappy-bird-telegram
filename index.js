@@ -4,6 +4,7 @@ let boardHeight = window.innerHeight;
 let context;
 
 const WIDTH_MULTI = boardWidth / 360;
+const SPEED_FACTOR = 2;
 
 // bird
 let birdWidth = 34 * WIDTH_MULTI;
@@ -33,7 +34,7 @@ let topHeightImage;
 let bottomHeightImage;
 
 // physics
-let velocityX = -2;
+let velocityX = -2 * SPEED_FACTOR;
 let velocityY = 0; // bird jump speed;
 let gravity = 0.25;
 
@@ -65,7 +66,7 @@ window.onload = function () {
   };
 
   requestAnimationFrame(update);
-  setInterval(placePipes, 2500);
+  setInterval(placePipes, 2500 / SPEED_FACTOR);
   document.addEventListener("click", moveBird);
 
   function update() {
@@ -146,7 +147,7 @@ window.onload = function () {
   }
 
   function moveBird() {
-    velocityY = -6;
+    velocityY = -6 * SPEED_FACTOR;
     if (gameOver) {
       gameOver = false;
       bird.y = birdY;
