@@ -66,7 +66,7 @@ window.onload = function () {
   };
 
   requestAnimationFrame(update);
-  setInterval(placePipes, 2500);
+  setInterval(placePipes, 1500);
   document.addEventListener("click", moveBird);
 
   function update() {
@@ -147,7 +147,7 @@ window.onload = function () {
   }
 
   function moveBird() {
-    velocityY = -6;
+    velocityY = -6 * SPEED_FACTOR;
     if (gameOver) {
       gameOver = false;
       bird.y = birdY;
