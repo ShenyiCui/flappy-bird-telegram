@@ -1,0 +1,9 @@
+body {
+  font-family: "Courier New", Courier, monospace;
+}
+
+#game {
+  background-color: skyblue;
+  width: 100%;
+  touch-action: manipulation;
+}
