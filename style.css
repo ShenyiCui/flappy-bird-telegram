@@ -1,9 +1,10 @@
 body {
   font-family: "Courier New", Courier, monospace;
+  text-align: center;
 }
 
 #game {
   background-color: skyblue;
-  width: 100%;
+  width: 414px;
   touch-action: manipulation;
 }

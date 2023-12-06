@@ -1,10 +1,9 @@
 let board;
-let boardWidth = window.innerWidth;
+let boardWidth = 414;
 let boardHeight = window.innerHeight;
 let context;
 
 const WIDTH_MULTI = boardWidth / 360;
-const SPEED_FACTOR = 20;
 
 // bird
 let birdWidth = 34 * WIDTH_MULTI;
@@ -34,9 +33,9 @@ let topHeightImage;
 let bottomHeightImage;
 
 // physics
-let velocityX = -2 * SPEED_FACTOR;
+let velocityX = -2;
 let velocityY = 0; // bird jump speed;
-let gravity = 0.25 * SPEED_FACTOR;
+let gravity = 0.25;
 
 window.onload = function () {
   board = document.getElementById("game");
@@ -66,14 +65,15 @@ window.onload = function () {
   };
 
   requestAnimationFrame(update);
-  setInterval(placePipes, 2500 / SPEED_FACTOR);
+  setInterval(placePipes, 1000);
   document.addEventListener("click", moveBird);
 
   function update() {
     requestAnimationFrame(update);
+
     if (gameOver) {
       context.fillStyle = "#FFF";
-      context.font = "100px Arial";
+      context.font = "50px Arial";
       context.fillText("GAME OVER", 15, 200);
       return;
     }
@@ -113,8 +113,8 @@ window.onload = function () {
 
     // score
     context.fillStyle = "#FFF";
-    context.font = "70px Arial";
-    context.fillText(score, 15, 60);
+    context.font = "20px Arial";
+    context.fillText(score, 15, 30);
   }
 
   function placePipes() {
@@ -147,7 +147,7 @@ window.onload = function () {
   }
 
   function moveBird() {
-    velocityY = -6 - SPEED_FACTOR * gravity;
+    velocityY = -6 - gravity;
     if (gameOver) {
       gameOver = false;
       bird.y = birdY;
